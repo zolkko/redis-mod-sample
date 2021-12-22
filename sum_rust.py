@@ -1,0 +1,6 @@
+import redis
+
+
+r = redis.Redis(host='localhost', port=6379, db=0)
+data = r.execute_command('redsum', 'test_')
+print(data)

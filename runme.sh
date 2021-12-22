@@ -1,3 +1,3 @@
 #!/bin/bash
 
-redis-server --loadmodule ./target/debug/libredsum.dylib
+redis-server --loadmodule ./target/release/libredsum.dylib
