@@ -1,0 +1,12 @@
+[package]
+name = "redsum"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "redsum"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+redis-module = { version = "0.25", features = ["experimental-api"] }
