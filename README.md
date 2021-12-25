@@ -30,11 +30,19 @@ Two other Python scripts are for summing the keys using pure Python and the nati
 On my machine the results are the following:
 
 ```sh
-(venv)  % time python sum_py.py
-4999950000
-python sum_py.py  4.11s user 1.73s system 67% cpu 8.648 total
+(venv) % time python ./sum_rust.py
+4999999950000000
+python ./sum_rust.py  0.07s user 0.05s system 0% cpu 3:29.75 total
 
-(venv) % time python sum_rust.py
-4999950000
-python sum_rust.py  0.05s user 0.02s system 48% cpu 0.157 total
+(venv) % time python ./sum_py.py
+4999999950000000
+python ./sum_py.py  4266.34s user 1881.99s system 66% cpu 2:34:12.24 total
+
+(venv) % time redis-cli --eval sum_mod.lua
+(integer) 4999999950000000
+redis-cli --eval sum_mod.lua  0.00s user 0.01s system 0% cpu 3:35.99 total
+
+(venv) % time redis-cli --eval sum_lua.lua
+(integer) 4999999950000000
+redis-cli --eval sum_lua.lua  0.00s user 0.01s system 0% cpu 3:45.67 total
 ```
